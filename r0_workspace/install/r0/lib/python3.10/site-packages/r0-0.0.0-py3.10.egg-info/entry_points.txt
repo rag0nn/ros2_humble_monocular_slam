@@ -1,0 +1,3 @@
+[console_scripts]
+data_provider = r0.data_provider:main
+

@@ -1,0 +1,24 @@
+[0.444s] Invoking command in '/home/rag0n/Desktop/lab/r0_workspace/src/r0': PYTHONPATH=/home/rag0n/Desktop/lab/r0_workspace/build/r0/prefix_override:/home/rag0n/.local/lib/python3.10/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/r0 build --build-base /home/rag0n/Desktop/lab/r0_workspace/build/r0/build install --record /home/rag0n/Desktop/lab/r0_workspace/build/r0/install.log --single-version-externally-managed install_data
+[0.608s] running egg_info
+[0.608s] writing ../../build/r0/r0.egg-info/PKG-INFO
+[0.609s] writing dependency_links to ../../build/r0/r0.egg-info/dependency_links.txt
+[0.609s] writing entry points to ../../build/r0/r0.egg-info/entry_points.txt
+[0.609s] writing requirements to ../../build/r0/r0.egg-info/requires.txt
+[0.609s] writing top-level names to ../../build/r0/r0.egg-info/top_level.txt
+[0.610s] reading manifest file '../../build/r0/r0.egg-info/SOURCES.txt'
+[0.617s] writing manifest file '../../build/r0/r0.egg-info/SOURCES.txt'
+[0.617s] running build
+[0.617s] running build_py
+[0.618s] copying r0/data_provider.py -> /home/rag0n/Desktop/lab/r0_workspace/build/r0/build/lib/r0
+[0.618s] running install
+[0.619s] running install_lib
+[0.620s] copying /home/rag0n/Desktop/lab/r0_workspace/build/r0/build/lib/r0/data_provider.py -> /home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages/r0
+[0.620s] byte-compiling /home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages/r0/data_provider.py to data_provider.cpython-310.pyc
+[0.621s] running install_data
+[0.621s] running install_egg_info
+[0.622s] removing '/home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages/r0-0.0.0-py3.10.egg-info' (and everything under it)
+[0.622s] Copying ../../build/r0/r0.egg-info to /home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages/r0-0.0.0-py3.10.egg-info
+[0.623s] running install_scripts
+[0.637s] Installing data_provider script to /home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/r0
+[0.637s] writing list of installed files to '/home/rag0n/Desktop/lab/r0_workspace/build/r0/install.log'
+[0.653s] Invoked command in '/home/rag0n/Desktop/lab/r0_workspace/src/r0' returned '0': PYTHONPATH=/home/rag0n/Desktop/lab/r0_workspace/build/r0/prefix_override:/home/rag0n/.local/lib/python3.10/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/r0 build --build-base /home/rag0n/Desktop/lab/r0_workspace/build/r0/build install --record /home/rag0n/Desktop/lab/r0_workspace/build/r0/install.log --single-version-externally-managed install_data
