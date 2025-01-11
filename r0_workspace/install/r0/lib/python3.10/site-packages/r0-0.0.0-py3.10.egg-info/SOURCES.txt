@@ -9,12 +9,12 @@ setup.py
 ../../build/r0/r0.egg-info/top_level.txt
 ../../build/r0/r0.egg-info/zip-safe
 config/my_config.rviz
-launch/main.launch.py
-launch/rtabmap_rgbd_odom.launch.py
-launch/rtabmap_slam.launch.py
+launch/example_rgbdslam_datasets.launch.py
 launch/rviz2.launch.py
 r0/__init__.py
-r0/data_provider.py
+r0/data_provider_monocular.py
+r0/data_provider_rgbd.py
+r0/fake_clock_publisher.py
 r0/depth_estimation/__init__.py
 r0/depth_estimation/run.py
 r0/depth_estimation/midas/__init__.py

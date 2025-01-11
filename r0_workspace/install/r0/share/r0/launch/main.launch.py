@@ -30,18 +30,33 @@ def generate_launch_description():
                     ])
                 ]),
             ) 
-
-    return LaunchDescription([
-        #rtabmap_odom_launch,
-        rtabmap_slam_launch,
-        data_provider_node,
-        Node(
+    
+    rgbd_sync_node =  Node(
             package='rtabmap_sync',
             executable='rgbd_sync',
             name='sync_rgbd'
         )
+    
+    static_tf_publisher_node = Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_baselink_to_camera',
+            arguments=['0', '0', '0.5', '0', '0', '0', 'base_link', 'camera_link'],  # Örnek pozisyon ve oryantasyon
+        )
+    
+    dynamic_tf_publisher_node = Node(
+        package='r0',
+        executable='tf_odomtobaselink',
+        name='dynmaic_odom_to_baselink'
+    )
 
-
+    return LaunchDescription([
+        rtabmap_odom_launch,
+        rtabmap_slam_launch,
+        data_provider_node,
+        #rgbd_sync_node,
+        static_tf_publisher_node,
+        dynamic_tf_publisher_node,
     ])
 """
 Node(

@@ -1,1 +1,1 @@
-rclpy
+numpy:opencv-python:rclpy:rviz2:sensor_msgs:std_msgs

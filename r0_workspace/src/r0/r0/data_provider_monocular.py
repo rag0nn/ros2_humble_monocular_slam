@@ -11,9 +11,9 @@ import os
 from glob import glob
 
 NODE_NAME = "data_provider"
-TOPIC_NAME_PUB_RGB = "rgbd_sync_node/rgb/image"
-TOPIC_NAME_PUB_DEPTH = "rgbd_sync_node/depth/image"
-TOPIC_NAME_PUB_CAMERA_INFO = "rgbd_sync_node/rgb/camera_info"
+TOPIC_NAME_PUB_RGB = "/rgb/image"
+TOPIC_NAME_PUB_DEPTH = "/depth/image"
+TOPIC_NAME_PUB_CAMERA_INFO = "/rgb/camera_info"
 IMAGES_PATH = "/home/rag0n/Desktop/data/test_videos/sequence_44/images"
 PUBLISH_PERIOT = 3
 PUBLISH_QUEUE_SIZE = 30

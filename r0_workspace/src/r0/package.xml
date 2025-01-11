@@ -3,11 +3,16 @@
 <package format="3">
   <name>r0</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>uses rtabmap and MiDaS to do SLAM on Monocular image datas.</description>
   <maintainer email="enes_trhn_8@outlook.com">rag0n</maintainer>
   <license>Apache2.0</license>
 
   <depend>rclpy</depend>
+  <depend>rviz2</depend>
+  <depend>opencv-python</depend>
+  <depend>numpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

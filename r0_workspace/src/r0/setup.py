@@ -23,7 +23,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'data_provider = r0.data_provider:main'
+            'data_provider_monocular = r0.data_provider_monocular:main',
+            'data_provider_rgbd = r0.data_provider_rgbd:main',
+            'fake_clock_publisher = r0.fake_clock_publisher:main',
         ],
     },
 )

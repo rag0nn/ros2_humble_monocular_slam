@@ -22,8 +22,8 @@ def generate_launch_description():
                 'odom_frame_id': 'odom',
                 'map_frame_id' : 'map',
                 'subscribe_depth': False,
-                'subscribe_rgb': False,
-                'subscribe_rgbd':True,
+                'subscribe_rgb': True,
+                'subscribe_rgbd':False,
                 'rgb_topic': '/rgb/image',
                 'memory_path': '/home/user/rtabmap_memory',
                 'detect_mapping': True,
@@ -37,6 +37,8 @@ def generate_launch_description():
                 #'Reg/Strategy': '0',
                 'Vis/OdomOnly': True, # Use Visual Odometry only
                 'odom_sensor_sync': True,
+                'sync_queue_size' : 40,
+                'topic_queue_size' : 40
 
             },
             ],
