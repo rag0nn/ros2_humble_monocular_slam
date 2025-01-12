@@ -50,8 +50,9 @@
 /home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages/r0/depth_estimation/midas/backbones/__pycache__/utils.cpython-310.pyc
 /home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages/r0/depth_estimation/midas/backbones/__pycache__/__init__.cpython-310.pyc
 /home/rag0n/Desktop/lab/r0_workspace/install/r0/lib/python3.10/site-packages/r0/depth_estimation/midas/backbones/__pycache__/swin.cpython-310.pyc
-/home/rag0n/Desktop/lab/r0_workspace/install/r0/share/r0/launch/example_rgbdslam_datasets.launch.py
+/home/rag0n/Desktop/lab/r0_workspace/install/r0/share/r0/launch/example_rtabmap_rgbdslam_datasets.launch.py
 /home/rag0n/Desktop/lab/r0_workspace/install/r0/share/r0/launch/rviz2.launch.py
+/home/rag0n/Desktop/lab/r0_workspace/install/r0/share/r0/launch/listeners.launch.py
 /home/rag0n/Desktop/lab/r0_workspace/install/r0/share/r0/config/my_config.rviz
 /home/rag0n/Desktop/lab/r0_workspace/install/r0/share/ament_index/resource_index/packages/r0
 /home/rag0n/Desktop/lab/r0_workspace/install/r0/share/r0/package.xml

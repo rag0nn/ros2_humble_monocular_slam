@@ -9,7 +9,8 @@ setup.py
 ../../build/r0/r0.egg-info/top_level.txt
 ../../build/r0/r0.egg-info/zip-safe
 config/my_config.rviz
-launch/example_rgbdslam_datasets.launch.py
+launch/example_rtabmap_rgbdslam_datasets.launch.py
+launch/listeners.launch.py
 launch/rviz2.launch.py
 r0/__init__.py
 r0/data_listener_camera_info.py
