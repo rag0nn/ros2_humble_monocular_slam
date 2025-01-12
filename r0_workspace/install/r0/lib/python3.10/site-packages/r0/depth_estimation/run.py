@@ -82,19 +82,21 @@ class MidasEstimator():
                 print(f"    Input resized to {width}x{height} before entering the encoder")
                 self.first_execution = False
 
-            prediction = model.forward(sample)
-            prediction = (
-                torch.nn.functional.interpolate(
-                    prediction.unsqueeze(1),
-                    size=target_size[::-1],
-                    mode="bicubic",
-                    align_corners=False,
+            try:
+                prediction = model.forward(sample)
+                prediction = (
+                    torch.nn.functional.interpolate(
+                        prediction.unsqueeze(1),
+                        size=target_size[::-1],
+                        mode="bicubic",
+                        align_corners=False,
+                    )
+                    .squeeze()
+                    .cpu()
+                    .numpy()
                 )
-                .squeeze()
-                .cpu()
-                .numpy()
-            )
-
+            except Exception as e:
+                print(f"Model not estimated this image {e}")
         return prediction
 
 

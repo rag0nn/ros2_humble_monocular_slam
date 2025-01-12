@@ -16,8 +16,8 @@ r0/__init__.py
 r0/data_listener_camera_info.py
 r0/data_listener_depth.py
 r0/data_listener_rgb.py
-r0/data_provider_monocular.py
 r0/data_provider_rgbd.py
+r0/data_provider_rgbd_via_monocular.py
 r0/fake_clock_publisher.py
 r0/depth_estimation/__init__.py
 r0/depth_estimation/run.py
