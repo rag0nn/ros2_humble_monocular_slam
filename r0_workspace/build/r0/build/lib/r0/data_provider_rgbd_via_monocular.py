@@ -54,10 +54,11 @@ class DataProvider(rclpy.node.Node):
             
     def sequence_read_callback(self):
         frame = cv2.imread(self.rgb_names[self.counter_seq])
-        depth_frame = cv2.cvtColor(self.depth_estimator.estimate(frame), cv2.COLOR_BGR2GRAY).astype(np.uint16)
+        depth_frame = self.depth_estimator.estimate(frame)
+        depth_frame = cv2.cvtColor(depth_frame, cv2.COLOR_RGB2GRAY).astype(np.uint16)   
+
         print(f"\nIMAGE RGB: {self.rgb_names[self.counter_seq]} SHAPE: ",frame.shape)
         print(f"IMAGE DEPTH: {self.rgb_names[self.counter_seq]} SHAPE: ",depth_frame.shape)
-
         self.counter_seq +=1
         return frame,depth_frame
 

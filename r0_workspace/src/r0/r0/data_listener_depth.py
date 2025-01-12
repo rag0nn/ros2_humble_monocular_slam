@@ -2,6 +2,7 @@ import rclpy
 import rclpy.node
 from sensor_msgs.msg import Image
 import cv2
+import numpy as np
 
 from cv_bridge import CvBridge
 import time
@@ -35,6 +36,11 @@ class DataListener(rclpy.node.Node):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='16UC1')
             self.get_logger().info(f"\nDATA:{self.counter_seq} stamp: {msg.header.stamp}")
+
+            # cv2 can't show correctly image from 16UC1 because max range is bigger than 255.
+            # we are normalizing the image to (0,255) range
+            cv_image= cv2.normalize(cv_image, None, 0, 255, cv2.NORM_MINMAX)
+            cv_image = cv_image.astype(np.uint8)
 
             cv2.imshow("DEPTH Image", cv_image)
             cv2.waitKey(1)  
