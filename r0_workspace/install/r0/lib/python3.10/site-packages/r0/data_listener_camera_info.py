@@ -37,6 +37,7 @@ class DataListener(rclpy.node.Node):
         self.get_logger().info(f"Projection Matrix (P): {msg.p}")
         self.counter_seq += 1
 
+
         if self.counter_seq % MEAN_PASSED_TIME_FRAME_COUNT == 0:
             if self.start_time is not None:
                 end_time = time.time()

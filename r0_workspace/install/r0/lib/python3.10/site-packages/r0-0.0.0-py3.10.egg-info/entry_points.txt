@@ -1,4 +1,5 @@
 [console_scripts]
+data_recorder = r0.data_recorder:main
 fake_clock_publisher = r0.fake_clock_publisher:main
 listener_caminfo = r0.data_listener_camera_info:main
 listener_depth = r0.data_listener_depth:main

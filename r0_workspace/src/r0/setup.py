@@ -30,6 +30,7 @@ setup(
             'listener_depth = r0.data_listener_depth:main',
             'listener_rgb = r0.data_listener_rgb:main',
 
+            'data_recorder= r0.data_recorder:main',
             'fake_clock_publisher = r0.fake_clock_publisher:main',
         ],
     },

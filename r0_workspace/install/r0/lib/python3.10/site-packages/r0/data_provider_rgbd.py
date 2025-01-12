@@ -68,7 +68,7 @@ class DataProvider(rclpy.node.Node):
         # rgb
         msg_rgb = self.bridge.cv2_to_imgmsg(rgb, encoding="bgr8")
         msg_rgb.header = Header(stamp=timestamp,frame_id=FRAME_ID)
-
+        
         # depth
         msg_depth = self.bridge.cv2_to_imgmsg(depth,encoding='16UC1')
         msg_depth.header = Header(stamp=timestamp,frame_id=FRAME_ID)
