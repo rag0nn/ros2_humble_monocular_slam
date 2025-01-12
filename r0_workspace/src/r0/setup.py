@@ -23,8 +23,13 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'data_provider_monocular = r0.data_provider_monocular:main',
-            'data_provider_rgbd = r0.data_provider_rgbd:main',
+            'provider_monocular = r0.data_provider_monocular:main',
+            'provider_rgbd = r0.data_provider_rgbd:main',
+
+            'listener_caminfo = r0.data_listener_camera_info:main',
+            'listener_depth = r0.data_listener_depth:main',
+            'listener_rgb = r0.data_listener_rgb:main',
+
             'fake_clock_publisher = r0.fake_clock_publisher:main',
         ],
     },

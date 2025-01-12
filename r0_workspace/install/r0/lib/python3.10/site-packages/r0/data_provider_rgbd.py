@@ -4,22 +4,31 @@ import rclpy.node
 from sensor_msgs.msg import Image,CameraInfo    
 from std_msgs.msg import Header
 
+
 from cv_bridge import CvBridge
 import cv2
 import numpy as np
-import os
+
 from glob import glob
 import time
 
-NODE_NAME = "data_provider"
-TOPIC_NAME_PUB_RGB = "camera/rgb/image_color"
-TOPIC_NAME_PUB_DEPTH = "camera/depth/image"
-TOPIC_NAME_PUB_CAMERA_INFO = "camera/rgb/camera_info"
-IMAGES_PATH = "/home/rag0n/Desktop/data/data/rgbd_dataset_freiburg2_pioneer_slam2/rgb_sync"
-DEPTH_IMAGES_PATH = "/home/rag0n/Desktop/data/data/rgbd_dataset_freiburg2_pioneer_slam2/depth_sync"
-PUBLISH_PERIOT = 0.33
-PUBLISH_QUEUE_SIZE = 30
-FRAME_ID = "kinect"
+
+
+NODE_NAME = ""
+TOPIC_NAME_PUB_RGB = ""
+TOPIC_NAME_PUB_DEPTH = ""
+TOPIC_NAME_PUB_CAMERA_INFO = ""
+IMAGES_PATH = ""
+DEPTH_IMAGES_PATH ="" 
+PUBLISH_PERIOT ="" 
+PUBLISH_QUEUE_SIZE = ""
+FRAME_ID = ""
+CAM_WIDTH,CAM_HEIGHT = 0,0
+CAM_D,CAM_D_MATRIX,CAM_K_MATRIX = "",[],[]
+
+
+
+
 
 class DataProvider(rclpy.node.Node):
     
@@ -79,17 +88,13 @@ class DataProvider(rclpy.node.Node):
 
     def _get_camera_info(self):
         msg = CameraInfo()
-        msg.width,msg.height = 1280,960
-        msg.distortion_model = "plumb_bob"
-        msg.d = [0.2312,-0.7849,-0.0033,-0.0001,0.9172]
-        msg.k = [520.9, 0.0, 325.1,
-                 0.0, 521.0, 249.7,
-                 0.0, 0.0, 1.0
-                 ]
+        msg.width,msg.height = CAM_WIDTH,CAM_HEIGHT
+        msg.distortion_model = CAM_D
+        msg.d = CAM_D_MATRIX
+        msg.k = CAM_K_MATRIX
         return msg
     
     def _get_image_names(self):
-
         rgb_names = sorted(glob(f"{IMAGES_PATH}/*"))        
         depth_names = sorted(glob(f"{DEPTH_IMAGES_PATH}/*"))
         self.rgb_names = rgb_names
@@ -102,13 +107,51 @@ class DataProvider(rclpy.node.Node):
 
 
 
+def get_params():
+    try:
+        from ament_index_python.packages import get_package_share_directory
+        import os
+        import yaml
+
+        global NODE_NAME, TOPIC_NAME_PUB_RGB, TOPIC_NAME_PUB_DEPTH, TOPIC_NAME_PUB_CAMERA_INFO
+        global IMAGES_PATH, DEPTH_IMAGES_PATH, PUBLISH_PERIOT, PUBLISH_QUEUE_SIZE, FRAME_ID
+        global CAM_D,CAM_D_MATRIX,CAM_K_MATRIX,CAM_WIDTH,CAM_HEIGHT
+
+        package_name = 'r0'
+        path = os.path.join(
+            get_package_share_directory(package_name), 'config', 'const_params.yaml'
+        )
+        # YAML dosyasını oku
+        with open(path, "r") as file:
+            data = yaml.safe_load(file)
+
+        NODE_NAME = data["node_names"]["data_provider"]
+        TOPIC_NAME_PUB_RGB = data["topics"]["image_rgb"]
+        TOPIC_NAME_PUB_DEPTH = data["topics"]["image_depth"]
+        TOPIC_NAME_PUB_CAMERA_INFO = data["topics"]["camera_info"]
+        IMAGES_PATH = data["data_read"]["rgb_path"]
+        DEPTH_IMAGES_PATH = data["data_read"]["depth_path"]
+        PUBLISH_PERIOT = data["publish_config"]["publish_periot"]
+        PUBLISH_QUEUE_SIZE = data["publish_config"]["publish_queue_size"]
+        FRAME_ID = data["publish_config"]["frame_id"]
+
+        CAM_WIDTH =data["data_read"]["camera_info"]["resolution"]["width"]
+        CAM_HEIGHT = data["data_read"]["camera_info"]["resolution"]["height"]
+        CAM_D =data["data_read"]["camera_info"]["distortion_model"]
+        CAM_D_MATRIX = data["data_read"]["camera_info"]["distortion_coefficients"]
+        CAM_K_MATRIX = data["data_read"]["camera_info"]["intrinsic_matrix"]
+    except:
+        raise Exception("Params not loaded successfully!")
+
 
 def main():
+    get_params()
     rclpy.init()
     node = DataProvider()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
 
-if __name__ == '__main__':
+if __name__ == '__main__': 
     main()
+

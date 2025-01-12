@@ -1,0 +1,37 @@
+node_names:
+  data_provider: "data_provider_rgbd"
+  data_listener_rgb: "data_listener_rgb"
+  data_listener_depth: "data_listener_depth"
+  data_listener_caminfo: "data_listener_camera_info"
+
+data_read:
+  rgb_path: "/home/rag0n/Desktop/data/data/rgbd_dataset_freiburg2_pioneer_slam2/rgb_sync"
+  depth_path: "/home/rag0n/Desktop/data/data/rgbd_dataset_freiburg2_pioneer_slam2/depth_sync"
+
+  camera_info:
+    frame_id: "kinect"
+    resolution: 
+      width: 1280
+      height: 960
+    distortion_model: "plumb_bob"
+    distortion_coefficients: [0.2312,-0.7849,-0.0033,-0.0001,0.9172]
+    intrinsic_matrix: [520.9, 0.0, 325.1,
+                        0.0, 521.0, 249.7,
+                        0.0, 0.0, 1.0
+                        ]
+  
+topics:
+  image_rgb: "camera/rgb/image_color"
+  image_depth: "camera/depth/image"
+  camera_info: "camera/rgb/camera_info"
+
+publish_config:
+  publish_periot: 0.33
+  publish_queue_size: 30
+  frame_id: "kinect"
+
+subscription_config:
+  rgb_sub_periot: 10
+  depth_sub_periot: 10
+  cam_info_sub_periot: 10
+
